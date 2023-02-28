@@ -11,4 +11,4 @@ COPY target/devops-integration.jar /app/devops-integration.jar
 EXPOSE 3000
 
 # Start the application
-CMD ["java", "-jar", "/app/devops-integration.jar"]
+ENTRYPOINT ["java", "-jar", "/app/devops-integration.jar"]
