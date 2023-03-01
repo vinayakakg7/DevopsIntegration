@@ -69,15 +69,8 @@ pipeline{
 
       stage('Deploy to Minikube') {
             steps {
-                script {
-                    def kubernetes = container('kubectl') // Assuming you have a kubectl container defined in your Jenkins environment
-                    
-                    // Set the Kubernetes context to Minikube
-                    bat "${kubernetes} config use-context minikube"
-                    
-                    // Apply the Kubernetes YAML file
-                    bat "cat deploymentservice.yaml | ${kubernetes} apply -f ."
-                }
+                // Apply the Kubernetes YAML file
+                bat "minikube kubectl -- apply -f deploymentservice.yaml"
             }
         }
      
