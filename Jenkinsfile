@@ -60,7 +60,6 @@ pipeline{
         script{
           withCredentials([string(credentialsId: 'Docker_Credenti' , variable: 'Docker_Credent')]) {
             bat "docker login -u vinayakakg7 -p ${Docker_Credent}"
-            bat "docker image push ${imageTag}"
             bat "docker image push ${DOCKER_NAMESPACE}/${env.JOB_NAME}:V1"
             bat "docker image push ${DOCKER_NAMESPACE}/${env.JOB_NAME}:latest"
           }
