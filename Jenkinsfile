@@ -58,8 +58,8 @@ pipeline{
      stage('Push image to DockerHub'){
       steps{
         script{
-          withCredentials([string(credentialsId: 'Docker_Credentials', variable: 'Docker_Cred')]) {
-            bat 'docker login -u vinayakakg7 -p ${Docker_Cred}'
+          withCredentials([string(credentialsId: 'sonarapi', variable: 'Docker_Credent')]) {
+            bat 'docker login -u vinayakakg7 -p ${Docker_Credent}'
             bat "docker image push ${DOCKER_NAMESPACE}/${env.JOB_NAME}:v1"
             bat "docker image push ${DOCKER_NAMESPACE}/${env.JOB_NAME}:latest"
           }
