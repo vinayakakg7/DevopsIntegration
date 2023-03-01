@@ -59,7 +59,7 @@ pipeline{
       steps{
         script{
           withCredentials([string(credentialsId: 'Docker_Credenti' , variable: 'Docker_Credent')]) {
-            bat 'docker login -u vinayakakg7 -p ${Docker_Credent}'
+            bat "docker login -u vinayakakg7 -p '${Docker_Credent}'"
             bat "docker image push ${DOCKER_NAMESPACE}/${env.JOB_NAME}:v1"
             bat "docker image push ${DOCKER_NAMESPACE}/${env.JOB_NAME}:latest"
           }
