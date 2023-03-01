@@ -62,6 +62,10 @@ pipeline{
             bat 'docker login -u vinayakakg7 -p ${Docker_Cred}'
             bat "docker image push ${DOCKER_NAMESPACE}/${env.JOB_NAME}:${env.BUILD_ID}"
             bat "docker image push ${DOCKER_NAMESPACE}/${env.JOB_NAME}:latest"
+          }
+        }
+      }
+     }
      
 }
 }
