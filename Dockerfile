@@ -8,7 +8,7 @@ WORKDIR /app
 COPY target/devops-integration.jar /app/devops-integration.jar
 
 # Expose the application port
-EXPOSE 3000
+EXPOSE 8082
 
 # Start the application
-ENTRYPOINT ["java", "-jar", "/app/devops-integration.jar"]
+CMD ["java", "-jar", "/app/devops-integration.jar"]
